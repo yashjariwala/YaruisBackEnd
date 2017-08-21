@@ -52,23 +52,18 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public Cart validate(int cartId) throws IOException {
 		Cart cart = getCartByCartId(cartId);
-		System.out.println("emptycart1");
 		if (cart == null || cart.getCartItems().size() == 0) {
 			throw new IOException(cartId + "");
 		}
-		System.out.println("emptycart2");
 		update(cart);
 		return cart;
 	}
 
 	@Override
 	public void update(Cart cart) {
-		System.out.println("cart1");
 		int cartId = cart.getCartId();
-		System.out.println("carttot1");
 		int grandTotal = customerorederdao.getCustomerOrderGrandTotal(cartId);
 		cart.setTotalprice(grandTotal);
-
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cart);
 	}

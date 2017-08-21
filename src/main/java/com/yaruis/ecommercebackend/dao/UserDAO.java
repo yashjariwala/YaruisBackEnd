@@ -13,9 +13,12 @@ public interface UserDAO {
 	public void delete(int userid);
 
 	public UserCustomer get(String username);
+	
+	public UserCustomer get(int userid);
 
 	public List<UserCustomer> list();
 	
 	public boolean isValidUser (int id,String name);
+	
 
 }

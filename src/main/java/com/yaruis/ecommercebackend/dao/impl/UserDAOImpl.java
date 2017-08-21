@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.yaruis.ecommercebackend.dao.UserDAO;
 import com.yaruis.ecommercebackend.model.Cart;
+import com.yaruis.ecommercebackend.model.Product;
 import com.yaruis.ecommercebackend.model.UserCustomer;
 
 @Repository("UserDAO")
@@ -63,14 +64,10 @@ public class UserDAOImpl implements UserDAO {
 	// }
 
 	public UserCustomer get(String username) {
-
 		Session session = this.sessionFactory.openSession();
 		Query query = session.createQuery("from UserCustomer where username=?");
 		query.setString(0, username);
 		UserCustomer user = (UserCustomer) query.uniqueResult();
-		// logger.info("USer loaded successfully, User details="+User);
-		// session.flush();
-		// session.close();
 		return user;
 
 	}
@@ -107,4 +104,16 @@ public class UserDAOImpl implements UserDAO {
 		sessionFactory.getCurrentSession().delete(user);
 	}
 
+	public UserCustomer get(int userid) {
+		Session session = this.sessionFactory.openSession();
+		Query query = session.createQuery("from UserCustomer where userid=?");
+		System.out.println("userid print 1 ");
+		query.setLong(0, userid);
+		System.out.println("userid print 2 ");
+		UserCustomer user = (UserCustomer) query.uniqueResult();
+		return user;
+	}
+
 }
+
+
