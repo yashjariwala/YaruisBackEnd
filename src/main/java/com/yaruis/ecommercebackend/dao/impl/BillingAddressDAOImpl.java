@@ -9,36 +9,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.yaruis.ecommercebackend.dao.BillingAddressDAO;
 import com.yaruis.ecommercebackend.dao.ShippingAddressDAO;
-import com.yaruis.ecommercebackend.model.Cart;
+import com.yaruis.ecommercebackend.model.BillingAddress;
 import com.yaruis.ecommercebackend.model.ShippingAddress;
-import com.yaruis.ecommercebackend.model.Supplier;
 
-@Repository("ShippingAddressDAO")
-public class ShippingAddressDAOImpl implements ShippingAddressDAO {
+@Repository("BillingAddressDAO")
+public class BillingAddressDAOImpl implements BillingAddressDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Transactional
-	public void update(ShippingAddress shippingaddress) {
-		sessionFactory.getCurrentSession().update(shippingaddress);
+	public void update(BillingAddress billingaddress) {
+		sessionFactory.getCurrentSession().update(billingaddress);
 	}
 
 	@Transactional
-	public ShippingAddress get(int shippingid) {
+	public BillingAddress get(int billingid) {
 		Session session = sessionFactory.openSession();
 		System.out.println("Hello1");
-		ShippingAddress shippingaddress = (ShippingAddress) session.get(ShippingAddress.class, shippingid);
+		BillingAddress billingaddress = (BillingAddress) session.get(BillingAddress.class, billingid);
 		System.out.println("Hello2");
 		session.close();
 		System.out.println("hello 3");
-		return shippingaddress;
+		return billingaddress;
 	}
 	
 	@Transactional
-	public List<ShippingAddress> list() {
-		String hql = "from ShippingAddress";
+	public List<BillingAddress> list() {
+		String hql = "from BillingAddress";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 
