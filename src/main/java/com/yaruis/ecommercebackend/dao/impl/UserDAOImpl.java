@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 	public void save(UserCustomer user) {
 		// sessionFactory.getCurrentSession().saveOrUpdate(user);
 		Session session = sessionFactory.getCurrentSession();
-//		user.setUserrole("ROLE_ADMIN");
+		// user.setUserrole("ROLE_ADMIN");
 		user.setUserrole("ROLE_USER");
 		Cart cart = new Cart();
 		user.setCart(cart);
@@ -36,7 +36,11 @@ public class UserDAOImpl implements UserDAO {
 
 	@Transactional
 	public void update(UserCustomer user) {
-		sessionFactory.getCurrentSession().update(user);
+		Session session = sessionFactory.getCurrentSession();
+		Cart cart = user.getCart();
+		user.setCart(cart);
+		cart.setUsercustomer(user);
+		session.saveOrUpdate(user);
 	}
 
 	@Transactional
@@ -115,5 +119,3 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 }
-
-
