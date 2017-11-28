@@ -6,7 +6,9 @@ com\yaruis\ecommercebackend\dao\UserDAO.class
 com\yaruis\ecommercebackend\dao\ProductDAO.class
 com\yaruis\ecommercebackend\config\ApplicationContextConfig.class
 com\yaruis\ecommercebackend\dao\impl\CartDAOImpl.class
+com\yaruis\ecommercebackend\dao\impl\BillingAddressDAOImpl.class
 com\yaruis\ecommercebackend\dao\impl\CategoryDAOImpl.class
+com\yaruis\ecommercebackend\dao\impl\ShippingAddressDAOImpl.class
 com\yaruis\ecommercebackend\model\UserCustomer.class
 com\yaruis\ecommercebackend\model\Email.class
 com\yaruis\ecommercebackend\model\ShippingAddress.class
@@ -15,10 +17,12 @@ com\yaruis\ecommercebackend\dao\impl\SupplierDAOImpl.class
 com\yaruis\ecommercebackend\model\BillingAddress.class
 com\yaruis\ecommercebackend\dao\impl\UserDAOImpl.class
 com\yaruis\ecommercebackend\model\CustomerOrder.class
+com\yaruis\ecommercebackend\dao\BillingAddressDAO.class
 com\yaruis\ecommercebackend\dao\CartDAO.class
 com\yaruis\ecommercebackend\dao\CustomerOrderDAO.class
 com\yaruis\ecommercebackend\dao\impl\CartItemDAOImpl.class
 com\yaruis\ecommercebackend\dao\impl\ProductDAOImpl.class
+com\yaruis\ecommercebackend\dao\ShippingAddressDAO.class
 com\yaruis\ecommercebackend\model\Cart.class
 com\yaruis\ecommercebackend\model\Category.class
 com\yaruis\ecommercebackend\model\Email$1.class

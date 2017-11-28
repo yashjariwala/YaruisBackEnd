@@ -9,13 +9,16 @@ C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\SupplierDAO.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\config\ApplicationContextConfig.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\impl\CategoryDAOImpl.java
+C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\impl\ShippingAddressDAOImpl.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\model\CartItem.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\model\UserCustomer.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\model\Supplier.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\UserDAO.java
+C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\BillingAddressDAO.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\impl\CartItemDAOImpl.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\CustomerOrderDAO.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\ProductDAO.java
+C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\impl\BillingAddressDAOImpl.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\model\Cart.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\model\BillingAddress.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\impl\ProductDAOImpl.java
@@ -23,3 +26,4 @@ C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\impl\SupplierDAOImpl.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\model\CustomerOrder.java
 C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\impl\CartDAOImpl.java
+C:\Users\yashj\workspace\YaruisBackEnd\src\main\java\com\yaruis\ecommercebackend\dao\ShippingAddressDAO.java
