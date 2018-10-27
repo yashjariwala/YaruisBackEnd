@@ -2,6 +2,7 @@ package com.yaruis.ecommercebackend.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,16 @@ public class CartItemDAOImpl implements CartItemDAO {
 			removeCartItem(cartItem.getCartitemid());
 		}
 
+	}
+	@SuppressWarnings("deprecation")
+	@Transactional
+	public List<CartItem> list(int cartid) {
+		Session session = sessionFactory.getCurrentSession();
+		Query<CartItem> query = session.createQuery("from CartItem  where cartid =?");
+		query.setLong(0, cartid);
+		List<CartItem> cartitem = (List<CartItem>) query.list();
+		System.out.println("The execution is "+cartitem);
+		return query.list();
 	}
 
 }

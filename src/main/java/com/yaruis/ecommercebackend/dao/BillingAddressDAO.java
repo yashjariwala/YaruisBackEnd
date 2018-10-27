@@ -11,5 +11,7 @@ public interface BillingAddressDAO {
 	public BillingAddress get(int billingid);
 	
 	public List<BillingAddress> list();
+	
+	public void delete(int id);
 
 }

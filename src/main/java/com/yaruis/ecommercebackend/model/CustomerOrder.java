@@ -2,6 +2,7 @@ package com.yaruis.ecommercebackend.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,6 +39,14 @@ public class CustomerOrder implements Serializable{
 	@OneToOne
 	@JoinColumn(name="shippingid")
 	private ShippingAddress shippingAddress;
+	
+//	@OneToOne
+//	@JoinColumn(name="productid")
+//	private CartItem productid;
+//	
+//	@Column
+//	@JoinColumn(name="quantity")
+//	private CartItem quantity;
 
 	public int getCustomerOrderId() {
 		return customerOrderId;
@@ -78,7 +87,25 @@ public class CustomerOrder implements Serializable{
 	public void setShippingAddress(ShippingAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}
-	
-	
 
-}
+//	public CartItem getProductid() {
+//		return productid;
+//	}
+//
+//	public void setProductid(CartItem productid) {
+//		this.productid = productid;
+//	}
+//
+//	public CartItem getQuantity() {
+//		return quantity;
+//	}
+//
+//	public void setQuantity(CartItem quantity) {
+//		this.quantity = quantity;
+//	}
+//	
+//	
+	
+	
+	
+	}

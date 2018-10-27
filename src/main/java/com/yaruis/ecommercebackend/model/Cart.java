@@ -30,7 +30,7 @@ public class Cart implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int cartId;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "userid")
 	@JsonIgnore
 	private UserCustomer usercustomer;

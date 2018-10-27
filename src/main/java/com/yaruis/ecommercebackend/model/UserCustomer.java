@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
@@ -66,6 +68,17 @@ public class UserCustomer implements Serializable {
 	@JoinColumn(name = "cartId")
 	@JsonIgnore
 	private Cart cart;
+	
+	@Column
+	private String resettoken;
+
+	public String getResettoken() {
+		return resettoken;
+	}
+
+	public void setResettoken(String resettoken) {
+		this.resettoken = resettoken;
+	}
 
 	public Cart getCart() {
 		return cart;
@@ -138,5 +151,7 @@ public class UserCustomer implements Serializable {
 	public void setShippingAddress(ShippingAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}
+
+
 
 }

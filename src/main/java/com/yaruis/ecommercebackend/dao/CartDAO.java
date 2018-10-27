@@ -9,5 +9,6 @@ public interface CartDAO {
 Cart getCartByCartId(int cartId);
 Cart validate(int cartId) throws IOException;
 void update(Cart cart);
+public void delete(int id);
 
 }

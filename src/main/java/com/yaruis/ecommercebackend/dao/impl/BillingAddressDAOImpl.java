@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.yaruis.ecommercebackend.dao.BillingAddressDAO;
 import com.yaruis.ecommercebackend.dao.ShippingAddressDAO;
 import com.yaruis.ecommercebackend.model.BillingAddress;
+import com.yaruis.ecommercebackend.model.Cart;
 import com.yaruis.ecommercebackend.model.ShippingAddress;
 
 @Repository("BillingAddressDAO")
@@ -42,6 +43,14 @@ public class BillingAddressDAOImpl implements BillingAddressDAO {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 
+	}
+
+	@Transactional
+	public void delete(int id) {
+		BillingAddress billingaddress = new BillingAddress();
+		billingaddress.setBillingid(id);
+		sessionFactory.getCurrentSession().delete(billingaddress);
+		
 	}
 
 }

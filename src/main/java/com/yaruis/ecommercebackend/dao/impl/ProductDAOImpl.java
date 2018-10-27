@@ -1,5 +1,6 @@
 package com.yaruis.ecommercebackend.dao.impl;
 
+import java.nio.file.Files;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -35,6 +36,8 @@ public class ProductDAOImpl implements ProductDAO {
 	public void delete(int id) {
 		Product ProductToDelete = new Product();
 		ProductToDelete.setProductid(id);
+		System.out.println(ProductToDelete);
+
 		sessionFactory.getCurrentSession().delete(ProductToDelete);
 	}
 

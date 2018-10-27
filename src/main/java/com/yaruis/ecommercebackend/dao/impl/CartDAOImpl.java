@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.yaruis.ecommercebackend.dao.CartDAO;
 import com.yaruis.ecommercebackend.dao.CustomerOrderDAO;
 import com.yaruis.ecommercebackend.model.Cart;
+import com.yaruis.ecommercebackend.model.Supplier;
 
 @Repository
 @Transactional
@@ -66,6 +67,14 @@ public class CartDAOImpl implements CartDAO {
 		cart.setTotalprice(grandTotal);
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cart);
+	}
+
+	@Transactional
+	public void delete(int id) {
+		Cart cart = new Cart();
+		cart.setCartId(id);
+		sessionFactory.getCurrentSession().delete(cart);
+		
 	}
 
 }

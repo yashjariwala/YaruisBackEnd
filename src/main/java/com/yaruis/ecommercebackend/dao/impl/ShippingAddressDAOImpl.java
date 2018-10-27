@@ -35,13 +35,20 @@ public class ShippingAddressDAOImpl implements ShippingAddressDAO {
 		System.out.println("hello 3");
 		return shippingaddress;
 	}
-	
+
 	@Transactional
 	public List<ShippingAddress> list() {
 		String hql = "from ShippingAddress";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 
+	}
+
+	@Transactional
+	public void delete(int id) {
+		ShippingAddress shippingaddress = new ShippingAddress();
+		shippingaddress.setShippingid(id);
+		sessionFactory.getCurrentSession().delete(shippingaddress);
 	}
 
 }

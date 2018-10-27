@@ -1,6 +1,8 @@
 package com.yaruis.ecommercebackend.dao.impl;
 
 import java.util.List;
+import java.util.UUID;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,9 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.yaruis.ecommercebackend.dao.CartDAO;
 import com.yaruis.ecommercebackend.dao.UserDAO;
 import com.yaruis.ecommercebackend.model.Cart;
 import com.yaruis.ecommercebackend.model.Product;
+import com.yaruis.ecommercebackend.model.Supplier;
 import com.yaruis.ecommercebackend.model.UserCustomer;
 
 @Repository("UserDAO")
@@ -21,12 +25,16 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@Autowired
+	private CartDAO cartdao;
+
 	@Transactional
 	public void save(UserCustomer user) {
 		// sessionFactory.getCurrentSession().saveOrUpdate(user);
 		Session session = sessionFactory.getCurrentSession();
 		// user.setUserrole("ROLE_ADMIN");
 		user.setUserrole("ROLE_USER");
+		user.setResettoken(UUID.randomUUID().toString());
 		Cart cart = new Cart();
 		user.setCart(cart);
 		cart.setUsercustomer(user);
@@ -39,11 +47,12 @@ public class UserDAOImpl implements UserDAO {
 		Session session = sessionFactory.getCurrentSession();
 		Cart cart = user.getCart();
 		user.setCart(cart);
+		user.setResettoken(UUID.randomUUID().toString());
 		cart.setUsercustomer(user);
 		session.saveOrUpdate(user);
 	}
 
-	@Transactional
+	// @Transactional
 	// public UserCustomer get(String username) {
 	//// String hql = "from UserDetails where id=" + "'" + id + "'";
 	//// Query query = (Query)
@@ -66,7 +75,7 @@ public class UserDAOImpl implements UserDAO {
 	// return user;
 	//
 	// }
-
+	@Transactional
 	public UserCustomer get(String username) {
 		Session session = this.sessionFactory.openSession();
 		Query query = session.createQuery("from UserCustomer where username=?");
@@ -100,14 +109,6 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	@Transactional
-	public void delete(int userid) {
-		UserCustomer user = new UserCustomer();
-		System.out.println("del user");
-		user.setUserid(userid);
-		sessionFactory.getCurrentSession().delete(user);
-	}
-
 	public UserCustomer get(int userid) {
 		Session session = this.sessionFactory.openSession();
 		Query query = session.createQuery("from UserCustomer where userid=?");
@@ -117,5 +118,38 @@ public class UserDAOImpl implements UserDAO {
 		UserCustomer user = (UserCustomer) query.uniqueResult();
 		return user;
 	}
+
+	@Transactional
+	public void delete(int id) {
+		UserCustomer usercustomer = new UserCustomer();
+		usercustomer.setUserid(id);
+		sessionFactory.getCurrentSession().delete(usercustomer);
+	}
+
+	@Transactional
+	public void updatedeletecascade(UserCustomer user) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(user);
+	}
+
+	@Transactional
+	public UserCustomer get1(String useremail) {
+		Session session = this.sessionFactory.openSession();
+		Query query = session.createQuery("from UserCustomer where useremail= ?");
+		query.setString(0, useremail);
+		UserCustomer user = (UserCustomer) query.uniqueResult();
+		return user;
+	}
+
+	@Override
+	public UserCustomer get2(String resettoken) {
+		Session session = this.sessionFactory.openSession();
+		Query query = session.createQuery("from UserCustomer where resettoken= ?");
+		query.setString(0, resettoken);
+		UserCustomer user = (UserCustomer) query.uniqueResult();
+		return user;
+	}
+
+
 
 }

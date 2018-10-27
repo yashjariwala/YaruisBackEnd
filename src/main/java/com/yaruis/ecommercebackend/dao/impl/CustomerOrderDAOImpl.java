@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,6 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 
 	@Autowired
 	CustomerOrderDAO custorderdao;
-	
 
 
 	@Transactional
@@ -43,15 +43,50 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 	@Transactional
 	public int getCustomerOrderGrandTotal(int cartId) {
 		int grandTotal = 0;
-		System.out.println("cust71 :" +cartdao.getCartByCartId(cartId));
+		System.out.println("cust71 :" + cartdao.getCartByCartId(cartId));
 		Cart cart = cartdao.getCartByCartId(cartId);
-		List<CartItem> cartItems= cart.getCartItems();
+		List<CartItem> cartItems = cart.getCartItems();
 		System.out.println("cust81");
 		for (CartItem item : cartItems) {
 			grandTotal += item.getTotalprice();
 		}
 		System.out.println("cust91");
 		return grandTotal;
+	}
+
+	// @Override
+	// public void delete(CustomerOrder custorderid) {
+	// sessionFactory.getCurrentSession().delete(custorderid);
+	//
+	// }
+
+	// @Override
+	// public List<CustomerOrder> get(int customerOrderId) {
+	// Session session = this.sessionFactory.getCurrentSession();
+	// Query query = session.createQuery("from CustomerOrder where userid=?");
+	// query.setLong(0, customerOrderId);
+	// List<CustomerOrder> custorder = (List<CustomerOrder>) query.uniqueResult();
+	// return custorder;
+	// }
+
+	@Override
+	@Transactional
+	public void delete(List<CustomerOrder> customerOrder) {
+		for(CustomerOrder customerorders : customerOrder ) {
+			sessionFactory.getCurrentSession().delete(customerorders);	
+		}
+		
+	}
+
+	@SuppressWarnings("deprecation")
+	@Transactional
+	public List<CustomerOrder> list(int useriddelete) {
+		Session session = sessionFactory.getCurrentSession();
+		Query<CustomerOrder> query = session.createQuery("from CustomerOrder where userid =?");
+		query.setLong(0, useriddelete);
+		List<CustomerOrder> customerorder = (List<CustomerOrder>) query.list();
+		System.out.println(customerorder);
+		return query.list();
 	}
 
 }

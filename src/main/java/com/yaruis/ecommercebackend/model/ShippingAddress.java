@@ -2,6 +2,7 @@ package com.yaruis.ecommercebackend.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -58,7 +59,7 @@ public class ShippingAddress implements Serializable {
 
 	private String zipcode;
 
-	@OneToOne(mappedBy = "shippingAddress")
+	@OneToOne(mappedBy = "shippingAddress",cascade = CascadeType.ALL)
 	private UserCustomer user;
 
 	public int getShippingid() {

@@ -59,7 +59,7 @@ public class BillingAddress implements Serializable {
 
 	private String zipcode;
 
-	@OneToOne(mappedBy = "billingAddress", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "billingAddress",cascade = CascadeType.ALL)
 	private UserCustomer user;
 
 	public int getBillingid() {

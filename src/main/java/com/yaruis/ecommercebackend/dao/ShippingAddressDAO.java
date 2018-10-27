@@ -11,5 +11,7 @@ public interface ShippingAddressDAO {
 	public ShippingAddress get(int shippingid);
 	
 	public List<ShippingAddress> list();
+	
+	public void delete(int id);
 
 }
