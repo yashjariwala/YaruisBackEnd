@@ -18,6 +18,8 @@ public interface ProductDAO {
 
 	public List<Product> list();
 	
+	public List<Product> listprodbycategory(String nameofcatgtobesorted);
+	
 //	public List<Product> listsimillarproducts();
 	
 	public List<Category>listcatname();

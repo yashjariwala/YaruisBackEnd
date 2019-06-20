@@ -66,6 +66,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return query.list();
 	}
 
+	public List<Product> listprodbycategory(String nameofcatgtobesorted) {
+		String hql ="from Product where CATEGORYNAME = '"+nameofcatgtobesorted+"'";
+		Query query = sessionFactory.openSession().createQuery(hql);
+		return query.list();
+	}
+
 
 
 }
