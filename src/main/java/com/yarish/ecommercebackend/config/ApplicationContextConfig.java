@@ -26,7 +26,7 @@ public class ApplicationContextConfig {
 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test121");
+		dataSource.setUrl("jdbc:h2:~/test");
 
 		dataSource.setDriverClassName("org.h2.Driver");
 
